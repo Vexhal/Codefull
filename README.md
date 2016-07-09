@@ -1,2 +1,2 @@
 #Grepfull
-Simple application for storing useful code
+Simple application for storing useful code.
