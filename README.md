@@ -1,3 +1,2 @@
-==== README =====
-<h1>Grepfull</h1>
-<p>Simple application for storing useful code</p>
+#Grepfull
+Simple application for storing useful code
