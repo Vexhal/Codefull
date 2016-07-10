@@ -3,8 +3,8 @@
     <th>Title</th>
     <th>Category</th>
     <th>Code Language</th>
-    <th>Repup</th>
-    <th>Repdown</th>
+    <th>Upvotes</th>
+    <th>Downvotes</th>
   </tr>
   <% @code_posts.each do |code_post| %>
   <tr>
@@ -13,7 +13,6 @@
     <td><%= code_post.code_language %></td>
     <td><%= code_post.repup %></td>
     <td><%= code_post.repdown %></td>
-
   </tr>
   <% end %>
 </table>
