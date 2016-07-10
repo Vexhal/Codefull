@@ -13,7 +13,7 @@
   <%= link_to "Downvote", downvote_code_path(@code_post) %>
 </div>
 
-<% if !current_user.nil? && is_owner?(@code_post) %>
+<% if !current_user.nil? && (is_owner?(@code_post) || current_user.is_admin?) %>
 <div class="pull-left">
   <%= link_to "Edit", edit_code_path(@code_post) %>
 </div>

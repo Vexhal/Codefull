@@ -3,7 +3,8 @@ class CodePost < ActiveRecord::Base
   validates_uniqueness_of [:title, :code]
   validates_presence_of [:title, :code, :category, :code_language]
   scope :available, -> { where(deleted_at: nil) } # Not deleted CodePost scope
-
+  scope :upvoted, -> { order('upvotes DESC') }
+  
   # Upvoting
   def do_upvote(id = nil)
     if !id.nil? # Not nil

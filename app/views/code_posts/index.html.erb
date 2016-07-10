@@ -10,7 +10,9 @@
   <tr>
     <td>
       <%= link_to code_post.title, show_code_path(code_post) %>
-      <%= link_to "(delete)", delete_code_path(code_post) if is_owner?(code_post) %>
+      <% if is_owner?(code_post) || (!current_user.nil? && current_user.is_admin?) %>
+        <%= link_to "(delete)", delete_code_path(code_post)  %>
+      <% end %>
     </td>
     <td><%= code_post.category %></td>
     <td><%= code_post.code_language %></td>

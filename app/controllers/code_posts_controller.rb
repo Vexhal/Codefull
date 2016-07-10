@@ -6,7 +6,7 @@ class CodePostsController < ApplicationController
   before_action :set_votes, only: [:upvote, :downvote, :show] # Get Vote Values
 
   def index
-    @code_posts = CodePost.available.all # Get all non deleted Code posts
+    @code_posts = CodePost.available.upvoted.all # Get all non deleted Code posts
   end
 
   def upvote
