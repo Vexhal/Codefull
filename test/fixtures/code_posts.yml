@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  code: MyText
+  repup: 1
+  repdown: 1
+
+two:
+  title: MyString
+  code: MyText
+  repup: 1
+  repdown: 1

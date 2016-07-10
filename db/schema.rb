@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710011037) do
+ActiveRecord::Schema.define(version: 20160710092842) do
+
+  create_table "code_posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "code"
+    t.integer  "repup"
+    t.integer  "repdown"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",     null: false
