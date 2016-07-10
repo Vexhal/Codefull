@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710093500) do
+ActiveRecord::Schema.define(version: 20160710095707) do
 
   create_table "code_posts", force: :cascade do |t|
     t.string   "title"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20160710093500) do
     t.datetime "deleted_at"
     t.string   "category"
     t.string   "code_language"
+    t.integer  "user_id"
   end
+
+  add_index "code_posts", ["user_id"], name: "index_code_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",     null: false
