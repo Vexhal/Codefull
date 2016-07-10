@@ -1,0 +1,20 @@
+<h1><%= @code_posts.count %></h1>
+<table style="width:100%">
+  <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Code Language</th>
+    <th>Repup</th>
+    <th>Repdown</th>
+  </tr>
+  <% @code_posts.each do |code_post| %>
+  <tr>
+    <td><%= link_to code_post.title, show_code_path(code_post) %></td>
+    <td><%= code_post.category %></td>
+    <td><%= code_post.code_language %></td>
+    <td><%= code_post.repup %></td>
+    <td><%= code_post.repdown %></td>
+
+  </tr>
+  <% end %>
+</table>

@@ -1,4 +1,15 @@
 <h1><%= @code_post.title %></h1>
 <h2>Category: <%= @code_post.category %></h2>
 <h2>Language: <%= @code_post.code_language %></h2>
-<h3>Language: <%= @code_post.code %></h3>
+<h3>Code: <%= @code_post.code %></h3>
+
+<div class="pull-right">
+  Repups: <%= @code_post.repup %>
+  Repdown: <%= @code_post.repdown %>
+</div>
+
+<% if current_user.id == @code_post.user_id %>
+<div class="pull-left">
+  Edit
+</div>
+<% end %>

@@ -1,10 +1,20 @@
 class CodePostsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :authenticate_user!, only: [:new, :edit, :published]
   before_action :set_code_posts, only: [:show, :edit]
+
+  def index
+    @code_posts = CodePost.all
+  end
+
+  def published
+    @code_posts = CodePost.where(user_id: current_user).all
+    render 'index'
+  end
 
   def show
   end
+
 
   def new
     @code_post = CodePost.new
@@ -15,6 +25,8 @@ class CodePostsController < ApplicationController
 
   def create
     @code_post = CodePost.new(code_post_params)
+    @code_posts.user_id = current_user # Setting whom will belong to
+
     respond_to do |format|
       if @code_post.save
         format.html { redirect_to @task, notice: "Code created successfully!"}
@@ -27,6 +39,8 @@ class CodePostsController < ApplicationController
   end
 
   def update
+    @code_posts.user_id = current_user # Setting whom will belong to
+
     respond_to do |format|
       if @code_post.update(code_post_params)
         format.html { redirect_to @task, notice: "Code updated successfully!"}
@@ -39,6 +53,7 @@ class CodePostsController < ApplicationController
   end
 
   def destroy
+    # TODO not destroy but update deleted_at
     @code_post.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: "Code deleted successfully!"}

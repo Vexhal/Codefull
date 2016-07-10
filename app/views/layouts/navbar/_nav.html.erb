@@ -12,9 +12,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
+              <li><%= link_to "View all Code", code_path %></li>
               <% if user_signed_in? %>
-              <li><%= link_to "View my CodeGreps", "#" %></li>
-              <li><%= link_to "Create a CodeGrep", new_code_path %></li>
+              <li><%= link_to "View my Code", published_code_path %></li>
+              <li><%= link_to "Publish Code", new_code_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
               <% else %>
               <li><%= link_to "Login", new_user_session_path %></li>

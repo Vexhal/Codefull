@@ -16,6 +16,15 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ table, th, td {
+     border: 1px solid black;
+     border-collapse: collapse;
+ }
+ th, td {
+     padding: 5px;
+     text-align: left;
+ }
+
  html{
    overflow-y: scroll;
  }
@@ -39,15 +48,10 @@
    }
  }
 
- /* typography */
- h1, h2, h3, h4, h5, h6 {
-   line-height: 1;
- }
-
  h1 {
+   line-height: 1px;
    font-size: 3em;
    letter-spacing: -2px;
-   margin-bottom: 30px;
    text-align: center;
  }
 
