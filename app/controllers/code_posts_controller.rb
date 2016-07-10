@@ -34,7 +34,7 @@ class CodePostsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless is_owner?
+    redirect_to root_path unless is_owner?(@code_post)
   end
 
   def create
@@ -66,13 +66,12 @@ class CodePostsController < ApplicationController
   end
 
   def destroy
-    if is_owner?
+    if is_owner?(@code_post)
       @code_post.deleted_at = DateTime.now
-      if @code_post.save
-        respond_to do |format|
-          format.html { redirect_to code_path, notice: "Code deleted successfully!"}
-          format.json { head :no_content }
-        end
+      @code_post.save
+      respond_to do |format|
+        format.html { redirect_to code_path, notice: "Code deleted successfully!"}
+        format.json { head :no_content }
       end
     else
       redirect_to root_path
@@ -85,11 +84,6 @@ class CodePostsController < ApplicationController
     def set_votes
       @upvotes = @code_post.upvotes.count
       @downvotes = @code_post.downvotes.count
-    end
-
-    # Is Owner of the Code Post?
-    def is_owner?
-      @code_post.user_id == current_user.id
     end
 
     # Owner of chosen CodePost?
