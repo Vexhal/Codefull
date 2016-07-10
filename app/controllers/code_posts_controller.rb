@@ -1,6 +1,6 @@
 class CodePostsController < ApplicationController
 
-  helper_method :is_owner? # Helper method for show view
+  helper_method :is_owner? # Helper method for views
   before_action :authenticate_user!, only: [:new, :edit, :published, :upvote, :downvote]
   before_action :set_code_post, only: [:destroy, :show, :edit, :update, :upvote, :downvote]
   before_action :set_votes, only: [:upvote, :downvote, :show] # Get Vote Values
@@ -94,7 +94,7 @@ class CodePostsController < ApplicationController
 
     # Owner of chosen CodePost?
     def is_owner?(code_post)
-      code_post.user_id == current_user.id
+      code_post.user_id == current_user.id unless current_user.nil?
     end
 
     # Setting code_post before action
