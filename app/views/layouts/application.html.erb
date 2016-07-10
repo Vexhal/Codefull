@@ -6,11 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-
-  <%= render 'shared/navbar/nav' %>
-  <%= render 'shared/content/application_layout_content' %>
-
+  <%= render 'layouts/navbar/nav' %>
+  <%= render 'layouts/content/application_layout_content' %>
 </body>
 
+  <%= render 'layouts/navbar/footer' %>
 </html>

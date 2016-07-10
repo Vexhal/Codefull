@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Grepfull</title>
+    <%= stylesheet_link_tag    'dashboard', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+	</head>
+
+	<body class="skin-black">
+
+		<header class="header">
+			Grepfull
+			<nav class="navbar navbar-static-top" role="navigation">
+        <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<div class="navbar-right">
+					<ul class="nav navbar-nav">
+						<li>#Logout</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<div class="wrapper row-offcanvas row-offcanvas-left">
+			<aside class="left-side sidebar-offcanvas">
+				<section class="sidebar">
+					<ul class="sidebar-menu">
+            <li>Testas</li>
+					</ul>
+				</section>
+			</aside>
+    </div>
+
+    <!-- KONTENTAS DEŠINĖS PUSĖS-->
+		<aside class="right-side">
+		    <section class="content">
+          <div class="row">
+            <!-- Kontentas -->
+              <div class="container-fluid">
+                <%= yield %>
+					    </div>
+            <!-- Footer -->
+					  <%= render 'shared/navbar/footer' %>
+			    </div>
+      </section>
+    </aside>
+
+  </body>
+</html>
