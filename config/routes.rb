@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # Devise, User
   devise_for :users
 
   # CodePosts
@@ -7,6 +8,11 @@ Rails.application.routes.draw do
   get 'code/new', to: 'code_posts#new', as: 'new_code'
   get 'code/published', to: 'code_posts#published', as: 'published_code'
   get 'code/edit/:id', to: 'code_posts#edit', as: 'edit_code'
+
+  # Voting
+  get 'code/:id/upvote', to: 'code_posts#upvote', as: 'upvote_code'
+  get 'code/:id/downvote', to: 'code_posts#downvote', as: 'downvote_code'
+
   get 'code/:id', to: 'code_posts#show', as: 'show_code'
   get 'code/', to: 'code_posts#index', as: 'code'
 

@@ -1,11 +1,16 @@
+<div class="pull-left">
+  Upvotes: <%= @upvotes %>
+  Downvotes: <%= @downvotes %>
+</div>
+
 <h1><%= @code_post.title %></h1>
 <h2>Category: <%= @code_post.category %></h2>
 <h2>Language: <%= @code_post.code_language %></h2>
 <h3>Code: <%= @code_post.code %></h3>
 
 <div class="pull-right">
-  Upvotes: <%= @code_post.upvotes.count %>
-  Downvotes: <%= @code_post.downvotes.count %>
+  <%= link_to "Upvote", upvote_code_path(@code_post) %>
+  <%= link_to "Downvote", downvote_code_path(@code_post) %>
 </div>
 
 <% if !current_user.nil? && is_owner? %>

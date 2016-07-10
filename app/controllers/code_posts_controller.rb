@@ -1,11 +1,22 @@
 class CodePostsController < ApplicationController
 
   helper_method :is_owner? # Helper method for show view
-  before_action :authenticate_user!, only: [:new, :edit, :published]
-  before_action :set_code_post, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :published, :upvote, :downvote]
+  before_action :set_code_post, only: [:show, :edit, :update, :upvote, :downvote]
+  before_action :set_votes, only: [:upvote, :downvote, :show] # Get Vote Values
 
   def index
     @code_posts = CodePost.available.all # Get all non deleted Code posts
+  end
+
+  def upvote
+    @code_post.do_upvote(current_user.id)
+    redirect_to show_code_path(@code_post)
+  end
+
+  def downvote
+    @code_post.do_downvote(current_user.id)
+    redirect_to show_code_path(@code_post)
   end
 
   def published
@@ -28,10 +39,12 @@ class CodePostsController < ApplicationController
 
   def create
     @code_post = CodePost.new(code_post_params)
-    @code_posts.user_id = current_user.id # Setting whom will belong to
+    @code_post.user_id = current_user.id # Setting whom will belong to
+    @code_post.upvotes << current_user.id # Add upvote after creation
+    
     respond_to do |format|
       if @code_post.save
-        format.html { redirect_to @code_post, notice: "Code created successfully!"}
+        format.html { redirect_to show_code_path(@code_post), notice: "Code created successfully!"}
         format.json { render :show, status: created, location: @code_post }
       else
         format.html { render :new }
@@ -43,7 +56,7 @@ class CodePostsController < ApplicationController
   def update
     respond_to do |format|
       if @code_post.update(code_post_params)
-        format.html { redirect_to @code_post, notice: "Code updated successfully!"}
+        format.html { redirect_to show_code_path(@code_post), notice: "Code updated successfully!"}
         format.json { render :show, status: created, location: @code_post }
       else
         format.html { render :edit }
@@ -62,6 +75,12 @@ class CodePostsController < ApplicationController
   end
 
   private
+
+    # Set votes
+    def set_votes
+      @upvotes = @code_post.upvotes.count
+      @downvotes = @code_post.downvotes.count
+    end
 
     # Is Owner of the Code Post?
     def is_owner?
