@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'code/:id', to: 'code_posts#show', as: 'show_code'
   get 'code/', to: 'code_posts#index', as: 'code'
 
-  root 'static_pages#home'
+  root 'static_pages#home' # ROOT
   get '*path', to: 'static_pages#home' # If page not found
 
 end
