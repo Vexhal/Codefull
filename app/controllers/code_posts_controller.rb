@@ -1,7 +1,8 @@
 class CodePostsController < ApplicationController
 
+  helper_method :is_owner? # Helper method for show view
   before_action :authenticate_user!, only: [:new, :edit, :published]
-  before_action :set_code_post, only: [:show, :edit]
+  before_action :set_code_post, only: [:show, :edit, :update]
 
   def index
     @code_posts = CodePost.available.all # Get all non deleted Code posts
@@ -14,6 +15,7 @@ class CodePostsController < ApplicationController
   end
 
   def show
+    # TODO
   end
 
   def new
@@ -21,19 +23,15 @@ class CodePostsController < ApplicationController
   end
 
   def edit
-    if is_owner?
-
-    else
-      redirect_to root_path
-    end
+    redirect_to root_path unless is_owner?
   end
 
   def create
     @code_post = CodePost.new(code_post_params)
-    @code_posts.user_id = current_user # Setting whom will belong to
+    @code_posts.user_id = current_user.id # Setting whom will belong to
     respond_to do |format|
       if @code_post.save
-        format.html { redirect_to @task, notice: "Code created successfully!"}
+        format.html { redirect_to @code_post, notice: "Code created successfully!"}
         format.json { render :show, status: created, location: @code_post }
       else
         format.html { render :new }
@@ -45,7 +43,7 @@ class CodePostsController < ApplicationController
   def update
     respond_to do |format|
       if @code_post.update(code_post_params)
-        format.html { redirect_to @task, notice: "Code updated successfully!"}
+        format.html { redirect_to @code_post, notice: "Code updated successfully!"}
         format.json { render :show, status: created, location: @code_post }
       else
         format.html { render :edit }
@@ -77,7 +75,7 @@ class CodePostsController < ApplicationController
 
     # Strong params
     def code_post_params
-      params.require(:code_posts).permit(:title, :code, :repup, :repdown,
-      :category, :code_language, :user_id)
+      params.require(:code_post).permit(:title, :code,
+      :category, :code_language)
     end
 end

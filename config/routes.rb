@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # CodePosts
+  resources :code_posts # For EDIT
   get 'code/new', to: 'code_posts#new', as: 'new_code'
   get 'code/published', to: 'code_posts#published', as: 'published_code'
   get 'code/edit/:id', to: 'code_posts#edit', as: 'edit_code'
@@ -11,5 +12,5 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get '*path', to: 'static_pages#home' # If page not found
-  
+
 end

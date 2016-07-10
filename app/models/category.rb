@@ -1,6 +1,11 @@
 class Category
+  # Categories getter
+  def self.get_categories
+    ["Sorting", "Dynamic Programming", "Other"]
+  end
 
-  def self.generate_categories(count = 1)
-    Faker::Lorem.words(count, true)
+  # Categories count getter
+  def self.count
+    get_categories.count
   end
 end

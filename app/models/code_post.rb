@@ -1,6 +1,8 @@
 class CodePost < ActiveRecord::Base
 
-  after_initialize :set_defaults
+  validates_presence_of [:title, :code, :category, :code_language]
+
+  after_initialize :set_defaults # Set defaults after creation
   scope :available, -> { where(deleted_at: nil) } # Not deleted CodePost scope
 
   private
