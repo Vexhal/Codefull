@@ -1,14 +1,13 @@
 class CodeLanguage
 
-  def self.generate_languages(count = 1)
-    Faker::Lorem.words(count, true)
-  end
-
+  # Languages getter
   def self.get_languages
-    %w[c c++ c# java ruby python php javascript swift objective-c]
+    ["C", "C++", "C#", "Java", "Ruby", "Python", "PHP", "JavaScript",
+       "Swift", "Objective-C", "Perl", "Ada", "Lisp", "Visual Basic .NET"]
   end
 
+  # Languages count getter
   def self.count
-    10
+    get_languages.count
   end
 end

@@ -1,20 +1,19 @@
 class CodePostsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :edit, :published]
-  before_action :set_code_posts, only: [:show, :edit]
+  before_action :set_code_post, only: [:show, :edit]
 
   def index
-    @code_posts = CodePost.all
+    @code_posts = CodePost.available.all
   end
 
   def published
-    @code_posts = CodePost.where(user_id: current_user).all
-    render 'index'
+    @code_posts = CodePost.available.where(user_id: current_user).all
+    render 'index' # Render default view
   end
 
   def show
   end
-
 
   def new
     @code_post = CodePost.new
@@ -63,7 +62,7 @@ class CodePostsController < ApplicationController
 
   private
 
-    def set_code_posts
+    def set_code_post
       @code_post = CodePost.find(params[:id])
     end
 
