@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(email: "grepfull@gmail.com", password: "grepfull123")
+categories = Category.generate_categories(30)
+code_languages = CodeLanguage.generate_languages(15)
