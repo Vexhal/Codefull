@@ -11,8 +11,8 @@
     <td><%= link_to code_post.title, show_code_path(code_post) %></td>
     <td><%= code_post.category %></td>
     <td><%= code_post.code_language %></td>
-    <td><%= code_post.repup %></td>
-    <td><%= code_post.repdown %></td>
+    <td><%= code_post.upvotes.count %></td>
+    <td><%= code_post.downvotes.count %></td>
   </tr>
   <% end %>
 </table>

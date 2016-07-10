@@ -4,8 +4,8 @@
 <h3>Code: <%= @code_post.code %></h3>
 
 <div class="pull-right">
-  Upvotes: <%= @code_post.repup %>
-  Downvotes: <%= @code_post.repdown %>
+  Upvotes: <%= @code_post.upvotes.count %>
+  Downvotes: <%= @code_post.downvotes.count %>
 </div>
 
 <% if !current_user.nil? && is_owner? %>
