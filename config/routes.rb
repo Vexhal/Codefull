@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'code/:id/upvote', to: 'code_posts#upvote', as: 'upvote_code'
   get 'code/:id/downvote', to: 'code_posts#downvote', as: 'downvote_code'
 
+  get 'code/:id/delete', to: 'code_posts#destroy', as: 'delete_code'
   get 'code/:id', to: 'code_posts#show', as: 'show_code'
   get 'code/', to: 'code_posts#index', as: 'code'
 

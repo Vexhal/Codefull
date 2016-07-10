@@ -2,7 +2,7 @@ class CodePostsController < ApplicationController
 
   helper_method :is_owner? # Helper method for show view
   before_action :authenticate_user!, only: [:new, :edit, :published, :upvote, :downvote]
-  before_action :set_code_post, only: [:show, :edit, :update, :upvote, :downvote]
+  before_action :set_code_post, only: [:destroy, :show, :edit, :update, :upvote, :downvote]
   before_action :set_votes, only: [:upvote, :downvote, :show] # Get Vote Values
 
   def index
@@ -41,7 +41,7 @@ class CodePostsController < ApplicationController
     @code_post = CodePost.new(code_post_params)
     @code_post.user_id = current_user.id # Setting whom will belong to
     @code_post.upvotes << current_user.id # Add upvote after creation
-    
+
     respond_to do |format|
       if @code_post.save
         format.html { redirect_to show_code_path(@code_post), notice: "Code created successfully!"}
@@ -66,11 +66,16 @@ class CodePostsController < ApplicationController
   end
 
   def destroy
-    # TODO not destroy but update deleted_at
-    @code_post.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: "Code deleted successfully!"}
-      format.json { head :no_content }
+    if is_owner?
+      @code_post.deleted_at = DateTime.now
+      if @code_post.save
+        respond_to do |format|
+          format.html { redirect_to code_path, notice: "Code deleted successfully!"}
+          format.json { head :no_content }
+        end
+      end
+    else
+      redirect_to root_path
     end
   end
 
@@ -85,6 +90,11 @@ class CodePostsController < ApplicationController
     # Is Owner of the Code Post?
     def is_owner?
       @code_post.user_id == current_user.id
+    end
+
+    # Owner of chosen CodePost?
+    def is_owner?(code_post)
+      code_post.user_id == current_user.id
     end
 
     # Setting code_post before action
