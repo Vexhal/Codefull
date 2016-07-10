@@ -21,7 +21,7 @@ class CodePostsController < ApplicationController
   end
 
   def edit
-    if is_owner
+    if is_owner?
 
     else
       redirect_to root_path
@@ -67,7 +67,7 @@ class CodePostsController < ApplicationController
 
     # Is Owner of the Code Post?
     def is_owner?
-      @code_post.user_id == current_user
+      @code_post.user_id == current_user.id
     end
 
     # Setting code_post before action
