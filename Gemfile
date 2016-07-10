@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pg'
 gem 'faker'
 gem 'awesome_print'
 gem 'devise'
