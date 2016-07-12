@@ -15,7 +15,3 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require_tree .
-
-$(function () {
-  $("#database-table").DataTable();
-});
