@@ -1,5 +1,10 @@
+<script type="text/javascript" >
+$(function () {
+  $("#database-table").DataTable();
+});
+</script>
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" data-turbolinks="false">
+<div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>Database (<%= get_database_count %>)</h1>
@@ -72,8 +77,3 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<script type="text/javascript" data-turbolinks-eval="false">
-$(function () {
-  $("#database-table").DataTable();
-});
-</script>
