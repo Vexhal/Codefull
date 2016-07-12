@@ -9,14 +9,11 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+ *= require_self
+ *= require_tree .
  */
 
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import "bootstrap-min";
  @import "font-awesome";
- @import "datatables-bootstrap"; // FIXINT DATATABLES
- @import "skin-scaffold";
- @import "skin-black";
