@@ -66,7 +66,7 @@ class CodePostsController < ApplicationController
   end
 
   def destroy
-    if is_owner?(@code_post)
+    if is_owner?(@code_post) || current_user.is_admin?
       @code_post.deleted_at = DateTime.now
       @code_post.save
       respond_to do |format|

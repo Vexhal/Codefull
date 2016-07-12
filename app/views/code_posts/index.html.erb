@@ -33,7 +33,13 @@
               <tbody>
               <% @code_posts.each do |code_post| %>
               <tr>
-                <td><%= code_post.title %></td>
+                <td><%= code_post.title %>
+                  <% if user_signed_in? && (current_user.is_admin? || is_owner?(code_post)) %>
+                    <i class="fa fa-remove"></i>
+                    <!-- TODO add link_to remove action -->
+                  <% end %>
+                  <br><small><%= code_post.get_email %></small>
+                </td>
                 <td><%= code_post.category %></td>
                 <td><%= code_post.code_language %></td>
                 <td><%= code_post.upvotes.count %></td>
@@ -41,7 +47,7 @@
               </tr>
               <% end %>
               </tbody>
-              
+
               <tfoot>
                 <tr>
                   <th>Title</th>
