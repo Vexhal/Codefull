@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap-append
 //= require bootstrap
 //= require jquery_ujs
-//= require_tree .
+//= require jquery-datatables-min
+//= require datatables-bootstrap-min
+//= require jquery-slimscroll-min
+//= require fastclick
+//= require app-min
