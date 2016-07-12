@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'adminlte'
 #gem 'turbolinks', '~> 5.0.0'
 gem 'font-awesome-rails'
 gem 'simple_form'

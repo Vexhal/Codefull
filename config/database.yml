@@ -10,6 +10,10 @@ development:
   <<: *default
   database: grepfull_development
 
+production:
+  <<: *default
+  database: grepfull_production
+
 test:
   <<: *default
   database: grepfull_test
