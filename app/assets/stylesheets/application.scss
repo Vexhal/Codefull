@@ -15,61 +15,8 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "bootstrap-min";
  @import "font-awesome";
-
- body {
-   padding-top: 60px
- }
-
- footer {
-   margin-bottom: 40px
- }
-
- table, th, td {
-     border: 1px solid black;
-     border-collapse: collapse;
- }
- th, td {
-     padding: 5px;
-     text-align: left;
- }
-
- html{
-   overflow-y: scroll;
- }
-
- section {
-   overflow: auto;
- }
-
- textarea {
-   resize: vertical;
- }
-
- .center {
-   text-align: center;
-   h1{
-     margin-bottom: 60px
-   }
- }
-
- h1 {
-   line-height: 1px;
-   font-size: 3em;
-   letter-spacing: -2px;
-   text-align: center;
- }
-
- h2 {
-   font-size: 1.2em;
-   letter-spacing: -1px;
-   margin-bottom: 30px;
-   text-align: center;
-   font-weight: normal;
-   color: #777;
- }
-
- p {
-   font-size: 1.1em;
-   line-height: 1.7em;
- }
+ @import "datatables-bootstrap"; // FIXINT DATATABLES
+ @import "skin-scaffold";
+ @import "skin-black";

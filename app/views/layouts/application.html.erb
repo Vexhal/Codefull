@@ -5,18 +5,16 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 </head>
 
-<body>
+<body class="fixed hold-transition skin-black sidebar-mini">
+<div class="wrapper">
 
-  <!-- Alerts -->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/sidebar' %>
+  <%= render 'layouts/alerts' %>
+  <%= render 'layouts/content' %>
+  <%= render 'layouts/footer' %>
 
-  <%= render 'layouts/navbar/nav' %>
-  <%= render 'layouts/content/application_layout_content' %>
-
-</body>
-
-  <%= render 'layouts/navbar/footer' %>
-</html>
+</div>

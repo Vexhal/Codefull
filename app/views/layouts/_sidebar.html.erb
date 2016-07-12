@@ -1,0 +1,38 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="header">MAIN NAVIGATION</li>
+
+      <li>
+        <a href="<%= code_path %>">
+          <i class="fa fa-table"></i>
+          <span>Database (<%= get_database_count %>)</span></a>
+      </li>
+
+      <% unless current_user.nil? %>
+      <li class="header">USER NAVIGATION</li>
+      <li>
+        <a href="<%= code_path %>">
+          <i class="fa fa-pencil"></i>
+          <span>Publish Code</span></a>
+      </li>
+      <li>
+        <a href="<%= code_path %>">
+          <i class="fa fa-cogs"></i>
+          <span>View Published Code</span></a>
+      </li>
+      <% end %>
+
+      <li class="header">OTHER</li>
+      <li>
+        <a href="<%= code_path %>">
+          <i class="fa fa-question"></i>
+          <span>About Grepfull</span></a>
+      </li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>
