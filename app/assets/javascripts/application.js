@@ -13,6 +13,9 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require bootstrap
-//= require bootstrap-min
 //= require jquery_ujs
 //= require_tree .
+
+$(function () {
+  $("#database-table").DataTable();
+});
