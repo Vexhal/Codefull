@@ -13,6 +13,9 @@
  *= require_tree .
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "font-awesome";
+@import "bootstrap.min";
+@import "font-awesome";
+@import "dataTables.tableTools.min";
+@import "dataTables.bootstrap";
+@import "AdminLTE.min";
+@import "skin-black.min";
