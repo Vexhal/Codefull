@@ -11,12 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
-//= require bootstrap-append
-//= require bootstrap
 //= require jquery_ujs
-//= require jquery-datatables-min
-//= require datatables-bootstrap-min
-//= require jquery-slimscroll-min
-//= require fastclick
-//= require app-min
+//= require bootstrap-sprockets
+//= require bootstrap
+//= require_tree .
