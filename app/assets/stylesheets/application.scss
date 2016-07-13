@@ -11,11 +11,11 @@
  * file per style scope.
  *= require_self
  *= require_tree .
+ *= require dataTables/extras/dataTables.responsive
+ *= require dataTables/jquery.dataTables
  */
 
 @import "bootstrap.min";
 @import "font-awesome";
-@import "dataTables.tableTools.min";
-@import "dataTables.bootstrap";
 @import "AdminLTE.min";
 @import "skin-black.min";

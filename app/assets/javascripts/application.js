@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
+//= require dataTables/extras/dataTables.responsive
+//= require dataTables/jquery.dataTables
 //= require bootstrap
-//= require jquery.dataTables.min
-//= require dataTables.bootstrap.min
 //= require jquery.slimscroll.min
 //= require fastclick.min
 //= require app.min
