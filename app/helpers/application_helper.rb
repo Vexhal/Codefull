@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def get_database_count
-    CodePost.count
+    CodePost.available.count
   end
 
 end
