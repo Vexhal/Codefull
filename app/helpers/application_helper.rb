@@ -4,4 +4,8 @@ module ApplicationHelper
     CodePost.available.count
   end
 
+  def is_devise_controller?
+    params[:controller].include?("devise");
+  end
+
 end
