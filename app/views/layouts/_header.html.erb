@@ -1,23 +1,20 @@
 <header class="main-header">
-
   <a href="<%= root_path %>" class="logo">
-    <span class="logo-mini"><b>G</b>RF</span>
-    <span class="logo-lg"><b>GREP</b>FULL</span>
+    <span class="logo-mini"><%= fa_icon "clone" %></span>
+    <span class="logo-lg"><%= fa_icon "clone" %> <%= get_logo_text %></span>
   </a>
 
   <nav class="navbar navbar-static-top">
-
     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
       <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
     </a>
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
 
-    <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-      </ul>
+        </ul>
+      </div>
+
     </div>
-
   </nav>
 </header>

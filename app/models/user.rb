@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
     self.user_type == "admin"
   end
 
+  def available_posts_count
+    CodePost.available.where(user_id: self.id).count;
+  end
+
 end

@@ -8,17 +8,17 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 </head>
 
-<% unless is_devise_controller? %>
-<body class="fixed hold-transition skin-black sidebar-mini">
-<div class="wrapper">
-  <%= render 'layouts/header' %>
-  <%= render 'layouts/sidebar' %>
-  <%= render 'layouts/alerts' %>
-  <%= render 'layouts/content' %>
-  <%= render 'layouts/footer' %>
-</div>
-</body>
-<% else %>
+<% unless is_devise_controller? # MAIN APPLICATION %>
+  <body class="fixed hold-transition skin-black sidebar-mini">
+    <div class="wrapper">
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/sidebar' %>
+      <%= render 'layouts/alerts' %>
+      <%= render 'layouts/content' %>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
+<% else #FOR LOGIN/SIGNUP %>
   <%= render 'layouts/alerts' %>
   <%= render 'layouts/content' %>
 <% end %>

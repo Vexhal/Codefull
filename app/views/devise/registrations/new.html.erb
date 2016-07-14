@@ -1,17 +1,22 @@
-<h2>Sign up</h2>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="<%= root_path %>">
+                <%= get_logo_text %></a>
+        </div>
+        <div class="login-box-body">
+            <p class="login-box-msg">Sign up and start exploring!</p>
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name))do |f| %>
+            <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+            <div class="form-inputs">
+                <%= f.input :email, required: true, autofocus: true, :input_html => { :type => "email", :class => "form-control" }  %>
+                <%= f.input :password, required: true, :input_html => { :type => "password", :class => "form-control" },  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)  %>
+                <%= f.input :password_confirmation, required: true, :input_html => { :class => "form-control" } %>
+            </div>
+            <hr>
+            <%= f.button :submit, "Sign up", :input_html => { :class => "btn btn-primary" }  %>
+            <% end %>
+        </div>
+    </div>
+</body>

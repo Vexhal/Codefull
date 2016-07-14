@@ -12,24 +12,43 @@
           <span>Database (<%= get_database_count %>)</span></a>
       </li>
 
-      <% unless current_user.nil? %>
       <li class="header">USER NAVIGATION</li>
+      <% unless current_user.nil? # LOGGED IN%>
       <li>
         <a href="<%= code_path %>">
-          <i class="fa fa-pencil"></i>
+          <%= fa_icon "edit" %>
           <span>Publish Code</span></a>
       </li>
       <li>
-        <a href="<%= code_path %>">
-          <i class="fa fa-cogs"></i>
-          <span>View Published Code</span></a>
+        <a href="<%= published_code_path %>">
+          <%= fa_icon "cogs" %>
+          <span>View Published Code (<%= current_user.available_posts_count %>)</span></a>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= fa_icon "sign-out" %>
+          <span>Logout</span>
+        <% end %>
+      </li>
+      <% else # LOGGED OFF %>
+      <li>
+        <%= link_to new_user_session_path do %>
+          <%= fa_icon "sign-in" %>
+          <span>Sign in</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_registration_path do %>
+          <%= fa_icon "lock" %>
+          <span>Registration</span>
+        <% end %>
       </li>
       <% end %>
 
       <li class="header">OTHER</li>
       <li>
         <a href="<%= code_path %>">
-          <i class="fa fa-question"></i>
+          <%= fa_icon "question" %>
           <span>About Grepfull</span></a>
       </li>
     </ul>

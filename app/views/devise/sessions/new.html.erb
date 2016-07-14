@@ -1,10 +1,8 @@
 <body class="hold-transition login-page">
-    <!-- Content Header (Page header) -->
-    <!-- <section class="content-header"></section> -->
     <div class="login-box">
         <div class="login-logo">
             <a href="<%= root_path %>">
-                <b>Grep</b>full</a>
+                <%= get_logo_text %></a>
         </div>
         <div class="login-box-body">
             <p class="login-box-msg">Sign in and start sharing your experience!</p>
@@ -17,11 +15,9 @@
                     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
                 </div>
             </div>
-            <div class="box-footer">
-                <%= f.button :submit, "Log in", :input_html => { :class => "btn btn-primary" }  %>
-            </div>
+            <hr>
+            <%= f.button :submit, "Log in", :input_html => { :class => "btn btn-primary" }  %>
             <% end %>
         </div>
     </div>
-
 </body>
