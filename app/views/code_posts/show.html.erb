@@ -1,20 +1,72 @@
-<div class="pull-left">
-  Upvotes: <%= @upvotes %>
-  Downvotes: <%= @downvotes %>
-</div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1><%= @code_post.title %></h1>
+    <ol class="breadcrumb">
+      <li><a href="<%= root_path %>">
+        <%= fa_icon "clone", text: "Home" %>
+        </a>
+      </li>
+      <li><a href="<%= code_path %>">Database</a></li>
+      <li class="active"><%= @code_post.id %></li>
+    </ol>
+  </section>
 
-<h1><%= @code_post.title %></h1>
-<h2>Category: <%= @code_post.category %></h2>
-<h2>Language: <%= @code_post.code_language %></h2>
-<h3>Code: <%= @code_post.code %></h3>
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="box">
+          <div id="editor"><%= @code_post.code %></div>
+      </div>
+      <div class="pull-left">
+        <p>
+        <%= link_to upvote_code_path(@code_post) do %>
+          Upvote
+          <%= fa_icon "chevron-up" %>
+        <% end %>
+        </p>
+      </div>
+      <div class="pull-right">
+        <p>
+        <%= link_to downvote_code_path(@code_post) do %>
+          Downvote
+          <%= fa_icon "chevron-down" %>
+        <% end %>
+        </p>
+      </div>
 
-<div class="pull-right">
-  <%= link_to "Upvote", upvote_code_path(@code_post) %>
-  <%= link_to "Downvote", downvote_code_path(@code_post) %>
-</div>
+    </div>
 
-<% if !current_user.nil? && (is_owner?(@code_post) || current_user.is_admin?) %>
-<div class="pull-left">
-  <%= link_to "Edit", edit_code_path(@code_post) %>
+    <div class="col-md-5">
+      <div class="box">
+        <div class="box-body">
+
+          <h2>Category: <%= @code_post.category %></h2>
+          <h2>Language: <%= @code_post.code_language %></h2>
+
+
+          <% if !current_user.nil? && (is_owner?(@code_post) || current_user.is_admin?) %>
+          <div class="pull-left">
+            <%= link_to "Edit", edit_code_path(@code_post) %>
+          </div>
+          <% end %>
+
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+<!-- /.content -->
 </div>
-<% end %>
+<!-- /.content-wrapper -->
+
+<script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+</script>

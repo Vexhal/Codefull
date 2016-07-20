@@ -19,3 +19,4 @@
 //= require jquery.slimscroll.min
 //= require fastclick.min
 //= require app.min
+//= require ace-rails-ap

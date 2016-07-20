@@ -17,12 +17,12 @@
       <li>
         <a href="<%= code_path %>">
           <%= fa_icon "edit" %>
-          <span>Publish Code</span></a>
+          <span>Publish a Grep</span></a>
       </li>
       <li>
         <a href="<%= published_code_path %>">
           <%= fa_icon "cogs" %>
-          <span>View Published Code (<%= current_user.available_posts_count %>)</span></a>
+          <span>View Published Greps (<%= current_user.available_posts_count %>)</span></a>
       </li>
       <li>
         <%= link_to destroy_user_session_path, method: :delete do %>

@@ -2,7 +2,7 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>Database (<%= get_database_count %>)</h1>
+    <br>
     <ol class="breadcrumb">
       <li><a href="<%= root_path %>">
         <%= fa_icon "clone", text: "Home" %>
@@ -25,14 +25,13 @@
                 <th>Category</th>
                 <th>Language</th>
                 <th>Upvotes</th>
-                <th>Downvotes</th>
               </tr>
               </thead>
 
               <tbody>
               <% @code_posts.each do |code_post| %>
               <tr>
-                <td><%= code_post.title %>
+                <td><%= link_to code_post.title, show_code_path(code_post) %>
                   <% if user_signed_in? && (current_user.is_admin? || is_owner?(code_post)) %>
                     <i class="fa fa-remove"></i>
                     <!-- TODO add link_to remove action -->
@@ -42,7 +41,6 @@
                 <td><%= code_post.category %></td>
                 <td><%= code_post.code_language %></td>
                 <td><%= code_post.upvotes.count %></td>
-                <td><%= code_post.downvotes.count %></td>
               </tr>
               <% end %>
               </tbody>
@@ -53,7 +51,6 @@
                   <th>Category</th>
                   <th>Language</th>
                   <th>Upvotes</th>
-                  <th>Downvotes</th>
                 </tr>
               </tfoot>
 
