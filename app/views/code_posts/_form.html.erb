@@ -1,7 +1,23 @@
 <%= simple_form_for(@code_post) do |f| %>
-  <%= f.input :title, label: "Title"%>
-  <%= f.input :code, label: "Code", :input_html => {:rows => 10}%>
-  <%= f.select :code_language, CodeLanguage.get_languages %>
-  <%= f.select :category, Category.get_categories %>
-  <%= f.button :submit, "Submit" %>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="box">
+          <div id="editor"><%= @code_post.code %></div>
+          <textarea name="code_post[code]" id="code_post_code" hidden="true"><%= @code_post.code %></textarea>
+      </div>
+    </div>
+
+    <div class="col-xs-4">
+      <div class="box">
+        <div class="box-body">
+          <%= f.input :title, label: "Title"%>
+          <%= f.select :code_language, CodeLanguage.get_languages %>
+          <%= f.select :category, Category.get_categories %>
+          <%= f.button :submit, "Submit" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <% end %>

@@ -1,0 +1,13 @@
+<!-- <script src="src/ace.js" type="text/javascript" charset="utf-8"></script> -->
+<script>
+  var editor = ace.edit("editor");
+  var textarea = $('#code_post_code');
+  editor.setTheme("ace/theme/dawn");
+  editor.setShowPrintMargin(false);
+
+  editor.getSession().on('change', function () {
+    textarea.val(editor.getSession().getValue());
+  });
+
+  textarea.val(editor.getSession().getValue());
+</script>
