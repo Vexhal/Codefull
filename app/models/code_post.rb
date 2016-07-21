@@ -14,6 +14,18 @@ class CodePost < ActiveRecord::Base
     end
   end
 
+  def get_reputation
+    self.upvotes.count - self.downvotes.count
+  end
+
+  def get_reputation_html
+    if self.get_reputation < 0
+      ("<span class='text-red'>#{self.get_reputation}</span>").html_safe
+    else
+      ("<span class='text-green'>#{self.get_reputation}</span>").html_safe
+    end
+  end
+
   # Upvoting
   def do_upvote(id = nil)
     if !id.nil? # Not nil

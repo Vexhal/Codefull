@@ -8,11 +8,33 @@
       </div>
     </div>
     <div class="col-xs-4">
-      <div class="box">
+      <div class="box box-default">
+        <div class="box-header">
+          <h3 class="box-title"><%= fa_icon "question-circle-o", text: " Other information" %></h3>
+          <%= render 'layouts/collapsers' %>
+        </div>
         <div class="box-body">
-          <%= f.input :title, label: "Title"%>
-          <%= f.select :code_language, CodeLanguage.get_languages %>
-          <%= f.select :category, Category.get_categories %>
+          <div class="table-responsive">
+              <table class="table no-margin">
+                <tr>
+                  <td align="right" width="10%"><%= fa_icon "laptop"%></td>
+                  <td>Title</td>
+                  <td><%= f.input :title, label: false, input_html: { style:'width:100%' } %></td>
+                </tr>
+                <tr>
+                  <td align="right"><%= fa_icon "folder-o"%></td>
+                  <td>Category</td>
+                  <td><%= f.select :category, Category.get_categories, {}, style: 'width:100%' %></td>
+                </tr>
+                <tr>
+                  <td align="right"><%= fa_icon "code"%></td>
+                  <td>Language</td>
+                  <td><%= f.select :code_language, CodeLanguage.get_languages, {}, style: 'width:100%' %></td>
+                </tr>
+              </table>
+          </div>
+        </div>
+        <div class="box-footer">
           <%= f.button :submit, "Submit" %>
         </div>
       </div>

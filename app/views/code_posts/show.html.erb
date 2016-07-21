@@ -3,7 +3,7 @@
   <!-- Content Header (Page header) -->
   <%= render 'layouts/alerts' %>
   <section class="content-header">
-    <h1><%= fa_icon "file-code-o", text: @code_post.title %><% if !current_user.nil? && (is_owner?(@code_post) || current_user.is_admin?) %>
+    <h1><%= @code_post.title %><% if !current_user.nil? && (is_owner?(@code_post) || current_user.is_admin?) %>
           <%= link_to edit_code_path(@code_post) do %>
             <%= fa_icon "pencil" %>
           <% end %>
@@ -21,15 +21,38 @@
   <section class="content">
     <div class="row">
       <div class="col-md-8">
-        <div class="box">
+        <div class="box box-default">
           <div id="editor"><%= @code_post.code %></div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="box">
+        <div class="box box-default">
+          <div class="box-header">
+            <h3 class="box-title"><%= fa_icon "question-circle-o", text: " Other information" %></h3>
+            <%= render 'layouts/collapsers' %>
+          </div>
           <div class="box-body">
-            <h2>Category: <%= @code_post.category %></h2>
-            <h2>Language: <%= @code_post.code_language %></h2>
+            <div class="table-responsive">
+                <table class="table no-margin">
+                  <tr>
+                    <td align="right" width="10%"><%= fa_icon "folder-o"%></td>
+                    <td>Category</td>
+                    <td><%= @code_post.category %></td>
+                  </tr>
+                  <tr>
+                    <td align="right"><%= fa_icon "code"%></td>
+                    <td>Language</td>
+                    <td><%= @code_post.code_language %></td>
+                  </tr>
+                  <tr>
+                    <td align="right"><%= fa_icon "star"%></td>
+                    <td>Reptutation</td>
+                    <td><%= @code_post.get_reputation_html %></td>
+                  </tr>
+                </table>
+            </div>
+          </div>
+          <div class="box-footer" style="padding-left: 17px;padding-right: 17px;">
             <%= render 'votes' %>
           </div>
         </div>

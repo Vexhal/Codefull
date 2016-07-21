@@ -24,7 +24,7 @@
                 <th>Title</th>
                 <th>Category</th>
                 <th>Language</th>
-                <th>Upvotes</th>
+                <th>Reputation</th>
               </tr>
               </thead>
 
@@ -40,7 +40,7 @@
                 </td>
                 <td><%= code_post.category %></td>
                 <td><%= code_post.code_language %></td>
-                <td><%= code_post.upvotes.count %></td>
+                <td><%= code_post.get_reputation_html %></td>
               </tr>
               <% end %>
               </tbody>
@@ -50,7 +50,7 @@
                   <th>Title</th>
                   <th>Category</th>
                   <th>Language</th>
-                  <th>Upvotes</th>
+                  <th>Reputation</th>
                 </tr>
               </tfoot>
 
