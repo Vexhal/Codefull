@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rename'
 gem 'ace-rails-ap'
 gem 'jquery-datatables-rails', '~> 3.3.0'
 #gem 'turbolinks', '~> 5.0.0'

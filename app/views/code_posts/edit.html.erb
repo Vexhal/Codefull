@@ -2,14 +2,14 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1><%= @code_post.title %></h1>
+    <h1><%= fa_icon "file-code-o", text: @code_post.title %></h1>
     <ol class="breadcrumb">
       <li><a href="<%= root_path %>">
         <%= fa_icon "clone", text: "Home" %>
         </a>
       </li>
       <li><a href="<%= code_path %>">Database</a></li>
-      <li class="active"><%= @code_post.id %> (EDIT)</li>
+      <li class="active"><a href="<%= show_code_path(@code_post) %>"><%= @code_post.id %></a> (EDIT)</li>
     </ol>
   </section>
 

@@ -9,10 +9,10 @@ module ApplicationHelper
   end
 
   def get_logo_text
-    ("<b>GREP</b>FULL").html_safe
+    ("<b>CODE</b>FULL").html_safe
   end
 
   def get_logo_text_small
-    ("<b>G</b>RF").html_safe
+    ("<b>C</b>FL").html_safe
   end
 end

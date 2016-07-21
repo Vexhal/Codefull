@@ -1,0 +1,16 @@
+<div class="pull-left">
+  <p>
+  <%= link_to upvote_code_path(@code_post) do %>
+    Upvote
+    <%= fa_icon "chevron-up" %>
+  <% end %>
+  </p>
+</div>
+<div class="pull-right">
+  <p>
+  <%= link_to downvote_code_path(@code_post) do %>
+    Downvote
+    <%= fa_icon "chevron-down" %>
+  <% end %>
+  </p>
+</div>

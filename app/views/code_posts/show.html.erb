@@ -1,8 +1,13 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
+  <%= render 'layouts/alerts' %>
   <section class="content-header">
-    <h1><%= @code_post.title %></h1>
+    <h1><%= fa_icon "file-code-o", text: @code_post.title %>    <% if !current_user.nil? && (is_owner?(@code_post) || current_user.is_admin?) %>
+          <%= link_to edit_code_path(@code_post) do %>
+            <%= fa_icon "pencil" %>
+          <% end %>
+        <% end %></h1>
     <ol class="breadcrumb">
       <li><a href="<%= root_path %>">
         <%= fa_icon "clone", text: "Home" %>
@@ -13,51 +18,24 @@
     </ol>
   </section>
 
-<!-- Main content -->
-<section class="content">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="box">
-      <div id="editor"><%= @code_post.code %></div>
-      </div>
-      <div class="pull-left">
-        <p>
-        <%= link_to upvote_code_path(@code_post) do %>
-          Upvote
-          <%= fa_icon "chevron-up" %>
-        <% end %>
-        </p>
-      </div>
-      <div class="pull-right">
-        <p>
-        <%= link_to downvote_code_path(@code_post) do %>
-          Downvote
-          <%= fa_icon "chevron-down" %>
-        <% end %>
-        </p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="box">
-        <div class="box-body">
-          <h2>Category: <%= @code_post.category %></h2>
-          <h2>Language: <%= @code_post.code_language %></h2>
-          <% if !current_user.nil? && (is_owner?(@code_post) || current_user.is_admin?) %>
-          <div class="pull-left">
-            <%= link_to "Edit", edit_code_path(@code_post) %>
-          </div>
-          <% end %>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="box">
+          <div id="editor"><%= @code_post.code %></div>
         </div>
-        <!-- /.box-body -->
       </div>
-      <!-- /.box -->
+      <div class="col-md-4">
+        <div class="box">
+          <div class="box-body">
+            <h2>Category: <%= @code_post.category %></h2>
+            <h2>Language: <%= @code_post.code_language %></h2>
+            <%= render 'votes' %>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- /.col -->
-  </div>
-  <!-- /.row -->
-</section>
-<!-- /.content -->
+  </section>
 </div>
-<!-- /.content-wrapper -->
+
 <%= render 'editorscripts' %>
