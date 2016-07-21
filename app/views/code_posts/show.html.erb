@@ -3,7 +3,7 @@
   <!-- Content Header (Page header) -->
   <%= render 'layouts/alerts' %>
   <section class="content-header">
-    <h1><%= fa_icon "file-code-o", text: @code_post.title %>    <% if !current_user.nil? && (is_owner?(@code_post) || current_user.is_admin?) %>
+    <h1><%= fa_icon "file-code-o", text: @code_post.title %><% if !current_user.nil? && (is_owner?(@code_post) || current_user.is_admin?) %>
           <%= link_to edit_code_path(@code_post) do %>
             <%= fa_icon "pencil" %>
           <% end %>
@@ -38,4 +38,11 @@
   </section>
 </div>
 
-<%= render 'editorscripts' %>
+<script>
+  $(document).ready(function() {
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/dawn");
+    editor.setShowPrintMargin(false);
+    editor.setReadOnly(true);
+  });
+</script>
