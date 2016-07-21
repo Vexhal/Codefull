@@ -14,6 +14,14 @@ class CodePost < ActiveRecord::Base
     end
   end
 
+  def get_language
+    CodeLanguage.get_languages[self.code_language.to_i]
+  end
+
+  def get_language_mode_code
+    CodeLanguage.get_languages_modes[self.code_language.to_i]
+  end
+
   def get_reputation
     self.upvotes.count - self.downvotes.count
   end

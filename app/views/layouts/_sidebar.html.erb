@@ -15,7 +15,7 @@
       <li class="header">USER NAVIGATION</li>
       <% unless current_user.nil? # LOGGED IN%>
       <li>
-        <a href="<%= code_path %>">
+        <a href="<%= new_code_path %>">
           <%= fa_icon "edit" %>
           <span>Publish Code</span></a>
       </li>

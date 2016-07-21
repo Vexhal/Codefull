@@ -39,7 +39,7 @@
                   <br><small><%= code_post.get_email %></small>
                 </td>
                 <td><%= code_post.category %></td>
-                <td><%= code_post.code_language %></td>
+                <td><%= code_post.get_language %></td>
                 <td><%= code_post.get_reputation_html %></td>
               </tr>
               <% end %>
@@ -68,7 +68,5 @@
 </div>
 <!-- /.content-wrapper -->
 <script>
-$(document).ready(function(){
-    $('#database-table').DataTable();
-});
+  $('#database-table').DataTable();
 </script>

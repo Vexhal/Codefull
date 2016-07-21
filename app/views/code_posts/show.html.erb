@@ -42,7 +42,7 @@
                   <tr>
                     <td align="right"><%= fa_icon "code"%></td>
                     <td>Language</td>
-                    <td><%= @code_post.code_language %></td>
+                    <td><%= @code_post.get_language %></td>
                   </tr>
                   <tr>
                     <td align="right"><%= fa_icon "star"%></td>
@@ -52,20 +52,22 @@
                 </table>
             </div>
           </div>
+          <% unless current_user.nil? %>
           <div class="box-footer" style="padding-left: 17px;padding-right: 17px;">
             <%= render 'votes' %>
           </div>
+          <% end %>
         </div>
       </div>
     </div>
   </section>
 </div>
 
+
 <script>
-  $(document).ready(function() {
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/dawn");
-    editor.setShowPrintMargin(false);
-    editor.setReadOnly(true);
-  });
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/eclipse");
+  editor.getSession().setMode("ace/mode/<%= @code_post.get_language_mode_code %>");
+  editor.setShowPrintMargin(false);
+  editor.setReadOnly(true);
 </script>

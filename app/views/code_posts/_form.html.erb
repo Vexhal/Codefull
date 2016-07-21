@@ -29,7 +29,9 @@
                 <tr>
                   <td align="right"><%= fa_icon "code"%></td>
                   <td>Language</td>
-                  <td><%= f.select :code_language, CodeLanguage.get_languages, {}, style: 'width:100%' %></td>
+                  <td>
+                    <%= f.select :code_language, CodeLanguage.get_languages.each_with_index.map { |name, index| [name, index] }, {}, style: 'width:100%' %>
+                  </td>
                 </tr>
               </table>
           </div>
