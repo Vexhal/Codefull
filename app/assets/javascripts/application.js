@@ -11,7 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+
 //= require dataTables/jquery.dataTables
 //= require dataTables/extras/dataTables.responsive
 //= require dataTables/jquery.dataTables
@@ -19,7 +21,6 @@
 //= require jquery.slimscroll.min
 //= require fastclick.min
 //= require app.min
-//= require turbolinks
 
 //= require ace-rails-ap
 //= require ace/theme-eclipse
@@ -35,3 +36,5 @@
 //= require ace/mode-perl
 //= require ace/mode-ada
 //= require ace/mode-lisp
+
+//= require turbolinks

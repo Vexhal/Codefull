@@ -65,7 +65,7 @@
 
 
 <script>
-document.addEventListener("turbolinks:load", function() {
+$(document).ready(function () {
   var editor = ace.edit("editor");
   editor.setTheme("ace/theme/eclipse");
   editor.getSession().setMode("ace/mode/<%= @code_post.get_language_mode_code %>");
