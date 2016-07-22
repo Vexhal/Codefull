@@ -19,9 +19,10 @@
 //= require jquery.slimscroll.min
 //= require fastclick.min
 //= require app.min
+//= require turbolinks
+
 //= require ace-rails-ap
 //= require ace/theme-eclipse
-
 //= require ace/mode-c_cpp
 //= require ace/mode-csharp
 //= require ace/mode-java
