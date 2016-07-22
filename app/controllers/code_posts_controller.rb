@@ -11,12 +11,21 @@ class CodePostsController < ApplicationController
 
   def upvote
     @code_post.do_upvote(current_user.id)
-    redirect_to show_code_path(@code_post)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+    #redirect_to show_code_path(@code_post)
   end
 
   def downvote
     @code_post.do_downvote(current_user.id)
-    redirect_to show_code_path(@code_post)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+
+    #redirect_to show_code_path(@code_post)
   end
 
   def published
@@ -67,8 +76,9 @@ class CodePostsController < ApplicationController
 
   def destroy
     if is_owner?(@code_post) || current_user.is_admin?
-      @code_post.deleted_at = DateTime.now
-      @code_post.save
+      #@code_post.deleted_at = DateTime.now
+      #@code_post.save
+      @code_post.destroy
       respond_to do |format|
         format.html { redirect_to code_path, notice: "Code deleted successfully!"}
         format.json { head :no_content }
