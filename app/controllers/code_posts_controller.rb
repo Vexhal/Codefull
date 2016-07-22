@@ -12,8 +12,7 @@ class CodePostsController < ApplicationController
   def upvote
     @code_post.do_upvote(current_user.id)
     respond_to do |format|
-      format.html
-      format.json
+      format.js
     end
     #redirect_to show_code_path(@code_post)
   end
@@ -21,10 +20,8 @@ class CodePostsController < ApplicationController
   def downvote
     @code_post.do_downvote(current_user.id)
     respond_to do |format|
-      format.html
-      format.json
+      format.js
     end
-
     #redirect_to show_code_path(@code_post)
   end
 

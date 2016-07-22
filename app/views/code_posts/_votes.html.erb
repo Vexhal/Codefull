@@ -1,6 +1,6 @@
 <div class="pull-left">
   <p>
-  <%= link_to upvote_code_path(@code_post) do %>
+  <%= link_to upvote_code_path(@code_post), remote: true do %>
     Upvote
     <%= fa_icon "chevron-up" %>
   <% end %>
@@ -8,7 +8,7 @@
 </div>
 <div class="pull-right">
   <p>
-  <%= link_to downvote_code_path(@code_post) do %>
+  <%= link_to downvote_code_path(@code_post), remote: true do %>
     Downvote
     <%= fa_icon "chevron-down" %>
   <% end %>

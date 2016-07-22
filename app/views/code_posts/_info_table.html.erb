@@ -1,0 +1,17 @@
+<table class="table no-margin">
+  <tr>
+    <td align="right" width="10%"><%= fa_icon "folder-o"%></td>
+    <td>Category</td>
+    <td><%= @code_post.category %></td>
+  </tr>
+  <tr>
+    <td align="right"><%= fa_icon "code"%></td>
+    <td>Language</td>
+    <td><%= @code_post.get_language %></td>
+  </tr>
+  <tr>
+    <td align="right"><%= fa_icon "star"%></td>
+    <td>Reptutation</td>
+    <td><%= @code_post.get_reputation_html %></td>
+  </tr>
+</table>
