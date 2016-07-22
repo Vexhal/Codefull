@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 
 //= require dataTables/jquery.dataTables
@@ -36,5 +35,3 @@
 //= require ace/mode-perl
 //= require ace/mode-ada
 //= require ace/mode-lisp
-
-//= require turbolinks

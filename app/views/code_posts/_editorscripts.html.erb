@@ -1,6 +1,5 @@
 <!-- <script src="src/ace.js" type="text/javascript" charset="utf-8"></script> -->
 <script>
-$(document).ready(function () {
   var editor = ace.edit("editor");
   var textarea = $('#code_post_code');
   editor.setTheme("ace/theme/eclipse");
@@ -10,5 +9,4 @@ $(document).ready(function () {
     textarea.val(editor.getSession().getValue());
   });
   textarea.val(editor.getSession().getValue());
-});
 </script>

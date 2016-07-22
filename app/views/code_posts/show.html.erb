@@ -65,11 +65,9 @@
 
 
 <script>
-$(document).ready(function () {
   var editor = ace.edit("editor");
   editor.setTheme("ace/theme/eclipse");
   editor.getSession().setMode("ace/mode/<%= @code_post.get_language_mode_code %>");
   editor.setShowPrintMargin(false);
   editor.setReadOnly(true);
-});
 </script>
