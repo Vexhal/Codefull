@@ -14,7 +14,6 @@ class CodePostsController < ApplicationController
     respond_to do |format|
       format.js
     end
-    #redirect_to show_code_path(@code_post)
   end
 
   def downvote
@@ -22,7 +21,6 @@ class CodePostsController < ApplicationController
     respond_to do |format|
       format.js
     end
-    #redirect_to show_code_path(@code_post)
   end
 
   def published
