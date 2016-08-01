@@ -16,8 +16,7 @@ class CodePostDatatable < AjaxDatatablesRails::Base
     @searchable_columns ||= [
       'CodePost.title',
       'CodePost.category',
-      'CodePost.code_language',
-      'CodePost.reputation']
+      'CodePost.code_language']
   end
 
   private
