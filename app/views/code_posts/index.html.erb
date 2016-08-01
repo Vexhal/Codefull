@@ -29,21 +29,6 @@
               </thead>
 
               <tbody>
-              <% @code_posts.each do |code_post| %>
-              <tr>
-                <td><%= link_to code_post.title, show_code_path(code_post) %>
-                  <% if user_signed_in? && (current_user.is_admin? || is_owner?(code_post)) %>
-                    <%= link_to delete_code_path(code_post), data: { confirm: "Are you sure?" } do %>
-                      <i class="fa fa-remove"></i>
-                    <% end %>
-                  <% end %>
-                  <br><small><%= code_post.get_email %></small>
-                </td>
-                <td><%= code_post.category %></td>
-                <td><%= code_post.get_language %></td>
-                <td><%= code_post.get_reputation_html %></td>
-              </tr>
-              <% end %>
               </tbody>
 
               <tfoot>
@@ -70,5 +55,9 @@
 <!-- /.content-wrapper -->
 
 <script>
-  $('#database-table').DataTable();
+  $('#database-table').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "ajax": "code/datatable_ajax/"
+  });
 </script>

@@ -9,6 +9,10 @@ class CodePostsController < ApplicationController
     @code_posts = CodePost.available.upvoted.all # Get all non deleted Code posts
   end
 
+  def datatable_ajax
+    render json: CodePostDatatable.new(view_context)
+  end
+
   def upvote
     @code_post.do_upvote(current_user.id)
     respond_to do |format|

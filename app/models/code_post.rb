@@ -23,7 +23,12 @@ class CodePost < ActiveRecord::Base
   end
 
   def get_reputation
-    self.upvotes.count - self.downvotes.count
+    count = self.upvotes.count - self.downvotes.count
+    if self.reputation != count # If refresh is needed
+      self.reputation = count
+      self.save
+    end
+    count
   end
 
   def get_reputation_html

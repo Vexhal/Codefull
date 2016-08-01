@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/antillas21/ajax-datatables-rails.git
+  revision: 2f1eb9e129701dacaab57d40695d92a122d6aa80
+  branch: master
+  specs:
+    ajax-datatables-rails (0.3.1)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -172,6 +180,7 @@ PLATFORMS
 
 DEPENDENCIES
   ace-rails-ap
+  ajax-datatables-rails!
   awesome_print
   byebug
   coffee-rails (~> 4.1.0)

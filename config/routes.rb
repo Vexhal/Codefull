@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # CodePosts
   resources :code_posts # For EDIT
+  get 'code/datatable_ajax', to: 'code_posts#datatable_ajax'
   get 'code/new', to: 'code_posts#new', as: 'new_code'
   get 'code/published', to: 'code_posts#published', as: 'published_code'
   get 'code/edit/:id', to: 'code_posts#edit', as: 'edit_code'

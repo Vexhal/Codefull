@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'ajax-datatables-rails', git: 'git://github.com/antillas21/ajax-datatables-rails.git', branch: 'master'
 gem 'rename'
 gem 'ace-rails-ap'
 gem 'jquery-datatables-rails', '~> 3.3.0'
